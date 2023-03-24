@@ -64,7 +64,8 @@ namespace TechJobsConsoleAutograded6
                     // Fetch results
                     if (columnChoice.Equals("all"))
                     {
-                        Console.WriteLine("Search all fields not yet implemented.");
+                        List<Dictionary<string, string>> searchResults = JobData.FindByValue(searchTerm);
+                        PrintJobs(searchResults);
                     }
                     else
                     {
@@ -72,7 +73,6 @@ namespace TechJobsConsoleAutograded6
                         PrintJobs(searchResults);
                     }
                 }
-
             }
         }
 
@@ -135,10 +135,23 @@ namespace TechJobsConsoleAutograded6
         // TODO: complete the PrintJobs method.
         public void PrintJobs(List<Dictionary<string, string>> someJobs) // "string, string" is relating to key/value pairs being string, in this case
         {
-            foreach (List<Dictionary<string, string>> job in someJobs)
+            if (someJobs.Count == 0)
             {
-                Console.WriteLine(job);
+                Console.WriteLine("No results");
             }
+            else
+            {
+                Console.WriteLine(Environment.NewLine + "*****");
+                foreach (Dictionary<string, string> job in someJobs)
+                {
+                    foreach (KeyValuePair<string, string> items in job)
+                    {
+                        Console.WriteLine($"{items.Key}: {items.Value}");
+                    }
+                    Console.WriteLine("*****");
+                }
+            }
+            
         }
     }
 }
