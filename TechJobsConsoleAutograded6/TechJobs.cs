@@ -141,9 +141,9 @@ namespace TechJobsConsoleAutograded6
             }
             else
             {
-                Console.WriteLine(Environment.NewLine + "*****");
                 foreach (Dictionary<string, string> job in someJobs)
                 {
+                    Console.WriteLine(Environment.NewLine + "*****");
                     foreach (KeyValuePair<string, string> items in job)
                     {
                         Console.WriteLine($"{items.Key}: {items.Value}");

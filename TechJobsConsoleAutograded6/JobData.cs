@@ -48,6 +48,7 @@ namespace TechJobsConsoleAutograded6
             LoadData();
 
             List<Dictionary<string, string>> jobs = new List<Dictionary<string, string>>();
+
             foreach (Dictionary<string, string> job in AllJobs)
             {
                 foreach (string Key in job.Keys)
@@ -57,6 +58,7 @@ namespace TechJobsConsoleAutograded6
                     if (newValue.ToLower().Contains(value.ToLower()))
                     {
                         jobs.Add(job);
+                        break;
                     }
                 }
             }
